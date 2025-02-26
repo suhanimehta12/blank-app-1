@@ -136,5 +136,5 @@ if uploaded_file is not None:
         plt.title("Comparison of Model Accuracies")
         st.pyplot(plt)
 
-    except Exception as 
+    except Exception as e
         st.error(f"An error occurred: {e}")

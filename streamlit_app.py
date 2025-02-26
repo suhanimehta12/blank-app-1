@@ -35,7 +35,7 @@ from sklearn.metrics import accuracy_score, classification_report
 st.title("Employee Attrition Prediction")
 
 
-#uploaded_file = st.file_uploader("/content/IBMEmployee_data.csv", type=["csv"])
+uploaded_file = st.file_uploader("/content/IBMEmployee_data.csv", type=["csv"])
 
 if uploaded_file is not None:
     try:

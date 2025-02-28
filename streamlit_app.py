@@ -16,7 +16,7 @@ from sklearn.metrics import accuracy_score, classification_report
 
 st.title("Employee Attrition Prediction")
 
-uploaded_file = st.file_uploader("/content/IBMEmployee_data.csv", type=["csv"])
+uploaded_file = st.file_uploader("Upload Employee Data CSV", type=["csv"])
 
 if uploaded_file is not None:
     try:
@@ -117,6 +117,14 @@ if uploaded_file is not None:
             plt.ylabel("Accuracy")
             plt.title("Comparison of Model Accuracies")
             st.pyplot(plt)
+
+        # Attrition Prediction
+        if st.button("Predict Attrition"):
+            user_df = pd.DataFrame(user_data)
+            user_input_transformed = encoder.transform(user_df)
+            prediction = selected_model.predict(user_input_transformed)
+            pred_class = label_encoder.inverse_transform(prediction)
+            st.write(f"### Predicted Attrition: **{pred_class[0]}**")
 
     except Exception as e:
         st.error(f"An error occurred: {e}")
